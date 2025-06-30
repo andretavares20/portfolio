@@ -1,0 +1,89 @@
+.navbar {
+  display: flex;
+  align-items: center;
+  padding: 1.2rem 0; // Removido padding lateral
+  background-color: #fff;
+  font-family: 'Inter', sans-serif;
+}
+
+.navbar__logo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  line-height: 1;
+  flex: 0 0 auto;
+
+  .logo-top {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    font-size: 1.6rem;
+    font-weight: 800;
+
+    .logo-brace,
+    .logo-name {
+      background: linear-gradient(90deg, var(--color1) 20%, var(--color2) 80%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      color: transparent;
+    }
+  }
+
+  .logo-sub {
+    font-size: 0.7rem;
+    font-weight: 600;
+    color: var(--color1);
+    margin-top: -2px;
+    letter-spacing: 0.3px;
+    text-align: center;
+  }
+}
+
+.navbar__menu {
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  flex: 1; // 👈 faz o menu ocupar o espaço do meio
+
+  a {
+    text-decoration: none;
+    color: #2e2e2e;
+    font-weight: 500;
+    font-size: 1rem;
+    transition: color 0.2s ease;
+
+    &:hover {
+      color: var(--color1);
+    }
+  }
+}
+
+.navbar__icons {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  flex: 0 0 auto; // 👈 não cresce mais, fica justinho ao lado direito
+  
+
+  a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    background-color: var(--color4);
+    border-radius: 50%;
+    transition: all 0.2s ease;
+
+    &:hover {
+      transform: scale(1.1);
+      background-color: var(--color3);
+    }
+
+    img {
+      width: 18px;
+      height: 18px;
+      filter: grayscale(100%) brightness(0.2);
+    }
+  }
+}

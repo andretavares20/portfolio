@@ -1,0 +1,136 @@
+.hero {
+    background-color: #fff;
+    padding: 6rem 0; // só padding vertical
+    display: flex;
+    justify-content: center;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+.hero__content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 5rem;
+    max-width: 1440px;
+    width: 100%;
+    flex-wrap: wrap;
+}
+
+.hero__text {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.8s ease forwards;
+    flex: 1;
+    max-width: 480px; // limite opcional
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hero__text h1 {
+    font-size: 2.8rem;
+    font-weight: 600;
+    margin: 0;
+    line-height: 1.2;
+}
+
+.hero__text h2 {
+    font-size: 3.5rem;
+    font-weight: 800;
+    margin: 1rem 0;
+    line-height: 1.2;
+}
+
+.hero__text .highlight {
+    background: linear-gradient(90deg, var(--color1) 20%, var(--color2) 80%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+}
+
+.hero__text p {
+    font-size: 1.1rem;
+    font-weight: 600;
+    background: linear-gradient(90deg, var(--color1) 20%, var(--color2) 80%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: var(--color5);
+    margin-top: 0.4rem;
+    margin-bottom: 1.5rem;
+}
+
+/* Imagem com borda gradiente moderna */
+.hero__image {
+    flex: 0 0 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: -20px; // ✅ sobe a imagem
+}
+
+.hero__image .image-wrapper {
+    padding: 4px;
+    background: linear-gradient(90deg, var(--color1) 20%, var(--color2) 80%);
+    border-radius: 50%;
+    display: flex;
+    bottom: 500px;
+    transform: translateY(-20px); // ✅ sobe só a imagem visualmente
+    transition: transform 0.3s ease;
+}
+
+.hero__image:hover .image-wrapper {
+    transform: scale(1.04);
+}
+
+.hero__image img {
+    width: 280px;
+    height: 360px;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: center 30%; // 👈 sobe um pouco o foco e "afasta" o zoom
+    display: block;
+    object-position: top center;
+}
+
+.hero__subtitle {
+    font-weight: 600;
+    font-size: 1.1rem;
+    color: var(--color5);
+    margin-top: -0.5rem;
+    background: linear-gradient(90deg, var(--color1), var(--color2));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 0.4px 0.4px rgba(0,0,0,0.1);
+}
+
+
+@media (max-width: 1024px) {
+    .hero__content {
+        flex-direction: column-reverse;
+        text-align: center;
+    }
+
+    .hero__image {
+        margin-top: 0;
+        margin-bottom: 2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero__image img {
+        width: 200px;
+        height: 200px;
+    }
+
+    .hero__text h1 {
+        font-size: 2rem;
+    }
+
+    .hero__text h2 {
+        font-size: 2.8rem;
+    }
+}
