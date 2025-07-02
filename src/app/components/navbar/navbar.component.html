@@ -18,6 +18,9 @@
     </button>
   </div>
 
+  <!-- Overlay escuro que cobre tudo quando menu está aberto -->
+  <div class="menu-overlay" *ngIf="menuAberto" (click)="toggleMenu()"></div>
+
   <nav class="navbar__menu" [class.open]="menuAberto">
     <a href="#">Início</a>
     <a href="#">Sobre</a>

@@ -1,151 +1,169 @@
 .hero {
-    background-color: #fff;
-    padding: 3rem 0 6rem; // ⬅️ Menos padding superior, mais inferior
-    display: flex;
-    justify-content: center;
-    font-family: 'Segoe UI', sans-serif;
+  background-color: #fff;
+  padding: 3rem 0 6rem;
+  display: flex;
+  justify-content: center;
+  align-items: center; // ✅ Garante alinhamento vertical total
+  flex-direction: column;
+  font-family: 'Segoe UI', sans-serif;
 }
 
 .hero__content {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 3rem; // ✅ Redução do gap para melhor responsividade
-    max-width: 90rem; // ✅ Substituído 1440px por valor relativo
-    width: 100%;
-    flex-wrap: wrap;
-    padding: 0 1rem; // ✅ Adicionado padding lateral para telas menores
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 3rem;
+  max-width: 90rem;
+  width: 100%;
+  flex-wrap: wrap;
+  padding: 0 1rem;
 }
 
 .hero__text {
-    opacity: 0;
-    transform: translateY(1.25rem); // ✅ Substituído 20px por rem
-    animation: fadeInUp 0.8s ease forwards;
-    flex: 1 1 300px; // ✅ Ajuste para responsividade
-    max-width: 30rem; // ✅ Substituído 480px por rem
-    text-align: left;
+  opacity: 0;
+  transform: translateY(1.25rem);
+  animation: fadeInUp 0.8s ease forwards;
+  flex: 1 1 300px;
+  max-width: 30rem;
+  text-align: left;
 }
 
 @keyframes fadeInUp {
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .hero__text h1 {
-    font-size: clamp(1.6rem, 2vw + 1rem, 2.8rem); // ✅ Responsivo
-    font-weight: 600;
-    margin: 0;
-    line-height: 1.2;
+  font-size: clamp(1.6rem, 2vw + 1rem, 2.8rem);
+  font-weight: 600;
+  margin: 0;
+  line-height: 1.2;
 }
 
 .hero__text h2 {
-    font-size: clamp(2rem, 3vw + 1rem, 3.5rem); // ✅ Responsivo
-    font-weight: 800;
-    margin: 1rem 0;
-    line-height: 1.2;
+  font-size: clamp(2rem, 3vw + 1rem, 3.5rem);
+  font-weight: 800;
+  margin: 1rem 0;
+  line-height: 1.2;
 }
 
 .hero__text .highlight {
-    background: linear-gradient(90deg, var(--color1) 20%, var(--color2) 80%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    color: transparent;
+  background: linear-gradient(90deg, var(--color1) 20%, var(--color2) 80%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
 }
 
 .hero__text p {
-    font-size: clamp(1rem, 1vw + 0.6rem, 1.2rem); // ✅ Responsivo
-    font-weight: 600;
-    background: linear-gradient(90deg, var(--color1) 20%, var(--color2) 80%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    color: var(--color5);
-    margin-top: 0.4rem;
-    margin-bottom: 1.5rem;
+  font-size: clamp(1rem, 1vw + 0.6rem, 1.2rem);
+  font-weight: 600;
+  background: linear-gradient(90deg, var(--color1) 20%, var(--color2) 80%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: var(--color5);
+  margin-top: 0.4rem;
+  margin-bottom: 1.5rem;
 }
 
 /* Imagem com borda gradiente moderna */
 .hero__image {
-    flex: 1 1 260px; // ✅ Mais fluido e responsivo
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 0; // ✅ Removido -20px fixo
+  flex: 1 1 260px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 0;
 }
 
 .hero__image .image-wrapper {
-    padding: 0.25rem; // ✅ Substituído 4px por rem
-    background: linear-gradient(90deg, var(--color1) 20%, var(--color2) 80%);
-    border-radius: 50%;
-    display: flex;
-    transform: translateY(-3rem); // ⬅️ Subimos mais a imagem
-    transition: transform 0.3s ease;
+  padding: 0.25rem;
+  background: linear-gradient(90deg, var(--color1) 20%, var(--color2) 80%);
+  border-radius: 50%;
+  display: flex;
+  transform: translateY(-3rem);
+  transition: transform 0.3s ease;
 }
 
 .hero__image:hover .image-wrapper {
-    transform: scale(1.04);
+  transform: scale(1.04);
 }
 
 .hero__image img {
-    width: clamp(160px, 40vw, 280px); // ✅ Responsivo
-    height: clamp(160px, 40vw, 280px); // ✅ Responsivo
-    border-radius: 50%;
-    object-fit: cover;
-    object-position: top center; // ✅ Mantido apenas o necessário
-    display: block;
+  width: clamp(160px, 40vw, 280px);
+  height: clamp(160px, 40vw, 280px);
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: top center;
+  display: block;
 }
 
 .hero__subtitle {
-    font-weight: 600;
-    font-size: clamp(1rem, 1vw + 0.6rem, 1.2rem); // ✅ Responsivo
-    color: var(--color5);
-    margin-top: -0.5rem;
-    background: linear-gradient(90deg, var(--color1), var(--color2));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    text-shadow: 0 0.4px 0.4px rgba(0, 0, 0, 0.1);
+  font-weight: 600;
+  font-size: clamp(1rem, 1vw + 0.6rem, 1.2rem);
+  color: var(--color5);
+  margin-top: -0.5rem;
+  background: linear-gradient(90deg, var(--color1), var(--color2));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 0.4px 0.4px rgba(0, 0, 0, 0.1);
 }
 
 @media (max-width: 1024px) {
-    .hero__content {
-        flex-direction: column-reverse;
-        text-align: center;
-        align-items: center; // ⬅️ Alinha ambos (texto e imagem) ao centro
-    }
+  .hero__content {
+    flex-direction: column-reverse;
+    align-items: center;
+    text-align: center;
+  }
 
-    .hero__text {
-        text-align: center; // ✅ Centraliza texto em telas menores
-        align-items: center; // ⬅️ Corrige centralização de conteúdo interno
-    }
+  .hero__text {
+    text-align: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+  }
 
-    .hero__image {
-        margin-bottom: 2rem;
-    }
+  .hero__image {
+    margin-bottom: 2rem;
+  }
 }
 
 @media (max-width: 768px) {
-    .hero__text h1 {
-        font-size: 2rem;
-    }
+  .hero__text h1 {
+    font-size: 2rem;
+  }
 
-    .hero__text h2 {
-        font-size: 2.8rem;
-    }
+  .hero__text h2 {
+    font-size: 2.8rem;
+  }
 }
 
-/* ✅ NOVO Media Query para telas pequenas (ex: iPhone SE) */
+/* ✅ Correção total para mobile estreito (ex: iPhone SE) */
 @media (max-width: 480px) {
-    .hero__content {
-        flex-direction: column-reverse;
-        text-align: center;
-    }
+  .hero__content {
+    flex-direction: column-reverse;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    max-width: 320px;
+    margin: 0 auto;
+  }
 
-    .hero__text {
-        text-align: center;
-    }
+  .hero__text {
+    max-width: 100%;
+    text-align: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+  }
 
-    .hero__image {
-        margin-bottom: 0; // ⬅️ Para manter a imagem mais próxima do texto
-    }
+  .hero__image {
+    margin-bottom: 0;
+  }
+
+  .hero__image .image-wrapper {
+    transform: translateY(-2rem);
+  }
 }
