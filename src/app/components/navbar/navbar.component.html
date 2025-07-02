@@ -1,14 +1,24 @@
-<header class="navbar">
-  <div class="navbar__logo">
-    <div class="logo-top">
-      <span class="logo-brace">&#123;</span>
-      <span class="logo-name">André</span>
-      <span class="logo-brace">&#125;</span>
+<header class="navbar" [class.open]="menuAberto">
+  <div class="navbar__left">
+    <div class="navbar__logo">
+      <div class="logo-top">
+        <span class="logo-brace">&#123;</span>
+        <span class="logo-name">André</span>
+        <span class="logo-brace">&#125;</span>
+      </div>
+      <span class="logo-sub">tavares</span>
     </div>
-    <span class="logo-sub">tavares</span>
   </div>
 
-  <nav class="navbar__menu">
+  <div class="navbar__right">
+    <button class="navbar__toggle" (click)="toggleMenu()" aria-label="Abrir menu">
+      <svg width="24" height="24" viewBox="0 0 24 24">
+        <path d="M4 6h16M4 12h16M4 18h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      </svg>
+    </button>
+  </div>
+
+  <nav class="navbar__menu" [class.open]="menuAberto">
     <a href="#">Início</a>
     <a href="#">Sobre</a>
     <a href="#">Stack de desenvolvimento</a>
@@ -16,7 +26,7 @@
     <a href="#">Contato</a>
   </nav>
 
-  <div class="navbar__icons">
+  <div class="navbar__icons" [class.open]="menuAberto">
     <a href="#"><img src="/assets/github.svg" alt="GitHub" /></a>
     <a href="#"><img src="/assets/twitter.svg" alt="Twitter" /></a>
     <a href="#"><img src="/assets/linkedin.svg" alt="LinkedIn" /></a>

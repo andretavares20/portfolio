@@ -1,9 +1,13 @@
 .navbar {
   display: flex;
   align-items: center;
-  padding: 1.2rem 0; // Removido padding lateral
+  justify-content: space-between;
+  flex-wrap: wrap;
+  padding: 1.2rem 1rem;
   background-color: #fff;
   font-family: 'Inter', sans-serif;
+  position: relative;
+  flex-direction: row;
 }
 
 .navbar__logo {
@@ -39,11 +43,24 @@
   }
 }
 
+/* ✅ Botão hamburguer para mobile */
+.navbar__toggle {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 1.8rem;
+  cursor: pointer;
+  color: #333;
+}
+
+/* Menu padrão */
 .navbar__menu {
   display: flex;
-  gap: 2rem;
+  flex-wrap: wrap;
+  gap: 1.2rem;
   justify-content: center;
-  flex: 1; // 👈 faz o menu ocupar o espaço do meio
+  flex: 1;
+  text-align: center;
 
   a {
     text-decoration: none;
@@ -61,9 +78,11 @@
 .navbar__icons {
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 0.7rem;
-  flex: 0 0 auto; // 👈 não cresce mais, fica justinho ao lado direito
-  
+  flex: 0 0 auto;
+  flex-wrap: wrap;
+  margin-top: 0.5rem;
 
   a {
     display: flex;
@@ -85,5 +104,37 @@
       height: 18px;
       filter: grayscale(100%) brightness(0.2);
     }
+  }
+}
+
+/* ✅ Estilos mobile para Angular com classe .open */
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 1.2rem;
+  }
+
+  .navbar__toggle {
+    display: block;
+    position: static;
+    margin-left: auto;
+  }
+
+  .navbar__menu,
+  .navbar__icons {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    background-color: #fff;
+    gap: 1rem;
+    padding: 1rem 0;
+  }
+
+  .navbar__menu.open,
+  .navbar__icons.open {
+    display: flex;
   }
 }
