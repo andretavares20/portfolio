@@ -14,6 +14,10 @@ export class NavbarComponent {
   toggleMenu() {
     this.menuAberto = !this.menuAberto;
     document.body.style.overflow = this.menuAberto ? 'hidden' : 'auto';
-    console.log('Menu está', this.menuAberto ? 'aberto' : 'fechado');
+  }
+
+  fecharMenu() {
+    this.menuAberto = false;
+    document.body.style.overflow = 'auto';
   }
 }

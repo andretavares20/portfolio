@@ -1,4 +1,4 @@
-<header class="navbar" [class.open]="menuAberto">
+<header class="navbar">
   <div class="navbar__left">
     <div class="navbar__logo">
       <div class="logo-top">
@@ -10,28 +10,47 @@
     </div>
   </div>
 
-  <div class="navbar__right">
-    <button class="navbar__toggle" (click)="toggleMenu()" aria-label="Abrir menu">
-      <svg width="24" height="24" viewBox="0 0 24 24">
+  <!-- ✅ Menu visível no DESKTOP -->
+  <nav class="navbar__menu desktop-only">
+    <a href="#">Início</a>
+    <a href="#">Sobre</a>
+    <a href="#">Stack</a>
+    <a href="#">Projetos</a>
+    <a href="#">Contato</a>
+  </nav>
+
+  <!-- ✅ Ícones visíveis no DESKTOP -->
+  <div class="navbar__icons desktop-only">
+    <a href="#"><img src="/assets/github.svg" alt="GitHub" /></a>
+    <a href="#"><img src="/assets/twitter.svg" alt="Twitter" /></a>
+    <a href="#"><img src="/assets/linkedin.svg" alt="LinkedIn" /></a>
+  </div>
+
+  <!-- ✅ Botão de abrir/fechar menu no MOBILE -->
+  <div class="navbar__right mobile-only">
+    <button class="navbar__toggle" (click)="toggleMenu()" aria-label="Abrir ou fechar menu">
+      <svg *ngIf="!menuAberto" width="24" height="24" viewBox="0 0 24 24">
         <path d="M4 6h16M4 12h16M4 18h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
       </svg>
     </button>
   </div>
 
-  <!-- Overlay escuro que cobre tudo quando menu está aberto -->
-  <div class="menu-overlay" *ngIf="menuAberto" (click)="toggleMenu()"></div>
+  <!-- ✅ Painel mobile completo -->
+  <div class="navbar__panel" [class.open]="menuAberto">
+    <button class="navbar__close" (click)="fecharMenu()" aria-label="Fechar menu">✕</button>
 
-  <nav class="navbar__menu" [class.open]="menuAberto">
-    <a href="#">Início</a>
-    <a href="#">Sobre</a>
-    <a href="#">Stack de desenvolvimento</a>
-    <a href="#">Projetos</a>
-    <a href="#">Contato</a>
-  </nav>
+    <nav class="navbar__menu">
+      <a href="#" (click)="fecharMenu()">Início</a>
+      <a href="#" (click)="fecharMenu()">Sobre</a>
+      <a href="#" (click)="fecharMenu()">Stack</a>
+      <a href="#" (click)="fecharMenu()">Projetos</a>
+      <a href="#" (click)="fecharMenu()">Contato</a>
+    </nav>
 
-  <div class="navbar__icons" [class.open]="menuAberto">
-    <a href="#"><img src="/assets/github.svg" alt="GitHub" /></a>
-    <a href="#"><img src="/assets/twitter.svg" alt="Twitter" /></a>
-    <a href="#"><img src="/assets/linkedin.svg" alt="LinkedIn" /></a>
+    <div class="navbar__icons">
+      <a href="#"><img src="/assets/github.svg" alt="GitHub" /></a>
+      <a href="#"><img src="/assets/twitter.svg" alt="Twitter" /></a>
+      <a href="#"><img src="/assets/linkedin.svg" alt="LinkedIn" /></a>
+    </div>
   </div>
 </header>
