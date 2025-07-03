@@ -11,6 +11,13 @@ import { CommonModule } from '@angular/common';
 export class NavbarComponent {
   menuAberto = false;
 
+  menuLinks = ['Início', 'Sobre', 'Stack', 'Projetos', 'Contato'];
+  icons = [
+    { icon: 'github.svg', alt: 'GitHub', url: '#' },
+    { icon: 'twitter.svg', alt: 'Twitter', url: '#' },
+    { icon: 'linkedin.svg', alt: 'LinkedIn', url: '#' },
+  ];
+
   toggleMenu() {
     this.menuAberto = !this.menuAberto;
     document.body.style.overflow = this.menuAberto ? 'hidden' : 'auto';

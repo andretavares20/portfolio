@@ -115,6 +115,19 @@
   display: none;
 }
 
+.section-container {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+
+
 /* ✅ Estilos mobile para Angular com classe .open */
 @media (max-width: 768px) {
   .mobile-only {

@@ -1,38 +1,36 @@
 <header class="navbar">
-  <div class="navbar__left">
-    <div class="navbar__logo">
-      <div class="logo-top">
-        <span class="logo-brace">&#123;</span>
-        <span class="logo-name">André</span>
-        <span class="logo-brace">&#125;</span>
+  <div class="section-container">
+    <div class="navbar__left">
+      <div class="navbar__logo">
+        <div class="logo-top">
+          <span class="logo-brace">&#123;</span>
+          <span class="logo-name">André</span>
+          <span class="logo-brace">&#125;</span>
+        </div>
+        <span class="logo-sub">tavares</span>
       </div>
-      <span class="logo-sub">tavares</span>
     </div>
-  </div>
 
-  <!-- ✅ Menu visível no DESKTOP -->
-  <nav class="navbar__menu desktop-only">
-    <a href="#">Início</a>
-    <a href="#">Sobre</a>
-    <a href="#">Stack</a>
-    <a href="#">Projetos</a>
-    <a href="#">Contato</a>
-  </nav>
+    <!-- ✅ Menu visível no DESKTOP -->
+    <nav class="navbar__menu desktop-only">
+      <a *ngFor="let link of menuLinks" href="#" (click)="fecharMenu()">{{ link }}</a>
+    </nav>
 
-  <!-- ✅ Ícones visíveis no DESKTOP -->
-  <div class="navbar__icons desktop-only">
-    <a href="#"><img src="/assets/github.svg" alt="GitHub" /></a>
-    <a href="#"><img src="/assets/twitter.svg" alt="Twitter" /></a>
-    <a href="#"><img src="/assets/linkedin.svg" alt="LinkedIn" /></a>
-  </div>
+    <!-- ✅ Ícones visíveis no DESKTOP -->
+    <div class="navbar__icons desktop-only">
+      <a *ngFor="let icon of icons" [href]="icon.url">
+        <img [src]="'/assets/' + icon.icon" [alt]="icon.alt" />
+      </a>
+    </div>
 
-  <!-- ✅ Botão de abrir/fechar menu no MOBILE -->
-  <div class="navbar__right mobile-only">
-    <button class="navbar__toggle" (click)="toggleMenu()" aria-label="Abrir ou fechar menu">
-      <svg *ngIf="!menuAberto" width="24" height="24" viewBox="0 0 24 24">
-        <path d="M4 6h16M4 12h16M4 18h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-      </svg>
-    </button>
+    <!-- ✅ Botão de abrir/fechar menu no MOBILE -->
+    <div class="navbar__right mobile-only">
+      <button class="navbar__toggle" (click)="toggleMenu()" aria-label="Abrir ou fechar menu">
+        <svg *ngIf="!menuAberto" width="24" height="24" viewBox="0 0 24 24">
+          <path d="M4 6h16M4 12h16M4 18h16" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+        </svg>
+      </button>
+    </div>
   </div>
 
   <!-- ✅ Painel mobile completo -->
@@ -40,17 +38,13 @@
     <button class="navbar__close" (click)="fecharMenu()" aria-label="Fechar menu">✕</button>
 
     <nav class="navbar__menu">
-      <a href="#" (click)="fecharMenu()">Início</a>
-      <a href="#" (click)="fecharMenu()">Sobre</a>
-      <a href="#" (click)="fecharMenu()">Stack</a>
-      <a href="#" (click)="fecharMenu()">Projetos</a>
-      <a href="#" (click)="fecharMenu()">Contato</a>
+      <a *ngFor="let link of menuLinks" href="#" (click)="fecharMenu()">{{ link }}</a>
     </nav>
 
     <div class="navbar__icons">
-      <a href="#"><img src="/assets/github.svg" alt="GitHub" /></a>
-      <a href="#"><img src="/assets/twitter.svg" alt="Twitter" /></a>
-      <a href="#"><img src="/assets/linkedin.svg" alt="LinkedIn" /></a>
+      <a *ngFor="let icon of icons" [href]="icon.url">
+        <img [src]="'/assets/' + icon.icon" [alt]="icon.alt" />
+      </a>
     </div>
   </div>
 </header>
