@@ -1,6 +1,28 @@
-<header class="navbar">
+<header class="navbar" [class.menu-aberto]="menuAberto">
   <div class="section-container">
-    <div class="navbar__left">
+    <!-- ✅ Botão de menu MOBILE no canto ESQUERDO -->
+    <div class="navbar__left mobile-only">
+      <button class="navbar__toggle" (click)="toggleMenu()" aria-label="Abrir ou fechar menu">
+        <svg *ngIf="!menuAberto" width="24" height="24" viewBox="0 0 24 24">
+          <path d="M4 6h16M4 12h16M4 18h16" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+        </svg>
+      </button>
+    </div>
+
+    <!-- ✅ LOGO no canto DIREITO no mobile -->
+    <div class="navbar__right mobile-only">
+      <div class="navbar__logo">
+        <div class="logo-top">
+          <span class="logo-brace">&#123;</span>
+          <span class="logo-name">André</span>
+          <span class="logo-brace">&#125;</span>
+        </div>
+        <span class="logo-sub">tavares</span>
+      </div>
+    </div>
+
+    <!-- ✅ Logo no canto ESQUERDO no DESKTOP -->
+    <div class="navbar__left desktop-only">
       <div class="navbar__logo">
         <div class="logo-top">
           <span class="logo-brace">&#123;</span>
@@ -22,24 +44,20 @@
         <img [src]="'/assets/' + icon.icon" [alt]="icon.alt" />
       </a>
     </div>
-
-    <!-- ✅ Botão de abrir/fechar menu no MOBILE -->
-    <div class="navbar__right mobile-only">
-      <button class="navbar__toggle" (click)="toggleMenu()" aria-label="Abrir ou fechar menu">
-        <svg *ngIf="!menuAberto" width="24" height="24" viewBox="0 0 24 24">
-          <path d="M4 6h16M4 12h16M4 18h16" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
-        </svg>
-      </button>
-    </div>
   </div>
 
   <!-- ✅ Painel mobile completo -->
   <div class="navbar__panel" [class.open]="menuAberto">
     <button class="navbar__close" (click)="fecharMenu()" aria-label="Fechar menu">✕</button>
 
+    <!-- ✅ NOVO espaçador para ocupar o lugar do padding-top -->
+    <div class="navbar__header-spacer"></div>
+
     <nav class="navbar__menu">
       <a *ngFor="let link of menuLinks" href="#" (click)="fecharMenu()">{{ link }}</a>
     </nav>
+
+    <div class="navbar__spacer"></div>
 
     <div class="navbar__icons">
       <a *ngFor="let icon of icons" [href]="icon.url">

@@ -20,11 +20,11 @@ export class NavbarComponent {
 
   toggleMenu() {
     this.menuAberto = !this.menuAberto;
-    document.body.style.overflow = this.menuAberto ? 'hidden' : 'auto';
+    document.body.classList.toggle('menu-aberto', this.menuAberto);
   }
 
   fecharMenu() {
     this.menuAberto = false;
-    document.body.style.overflow = 'auto';
+    document.body.classList.remove('menu-aberto');
   }
 }
