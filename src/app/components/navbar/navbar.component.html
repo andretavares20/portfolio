@@ -50,11 +50,20 @@
   <div class="navbar__panel" [class.open]="menuAberto">
     <button class="navbar__close" (click)="fecharMenu()" aria-label="Fechar menu">✕</button>
 
-    <!-- ✅ NOVO espaçador para ocupar o lugar do padding-top -->
-    <div class="navbar__header-spacer"></div>
+    <!-- NOVO HEADER COM AVATAR -->
+    <div class="navbar__user-header">
+      <img src="assets/profile.png" alt="Foto de perfil" class="navbar__avatar" />
+      <div class="navbar__user-info">
+        <strong>André Tavares</strong>
+        <span>Desenvolvedor Front-end</span>
+      </div>
+    </div>
 
     <nav class="navbar__menu">
-      <a *ngFor="let link of menuLinks" href="#" (click)="fecharMenu()">{{ link }}</a>
+      <a *ngFor="let link of menuLinks" href="#" (click)="fecharMenu()">
+        <img class="menu-icon" [src]="'assets/icons/' + getIconForLink(link)" alt="" />
+        <span>{{ link }}</span>
+      </a>
     </nav>
 
     <div class="navbar__spacer"></div>
@@ -65,4 +74,5 @@
       </a>
     </div>
   </div>
+
 </header>

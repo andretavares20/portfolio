@@ -11,7 +11,7 @@ import { CommonModule } from '@angular/common';
 export class NavbarComponent {
   menuAberto = false;
 
-  menuLinks = ['Início', 'Sobre', 'Stack', 'Projetos', 'Contato'];
+  menuLinks = ['Sobre', 'Stack', 'Projetos', 'Contato'];
   icons = [
     { icon: 'github.svg', alt: 'GitHub', url: '#' },
     { icon: 'twitter.svg', alt: 'Twitter', url: '#' },
@@ -27,4 +27,18 @@ export class NavbarComponent {
     this.menuAberto = false;
     document.body.classList.remove('menu-aberto');
   }
+
+  getIconForLink(link: string): string {
+    const mapa: Record<string, string> = {
+      Sobre: 'user.png',
+      Stack: 'layers.png',
+      Projetos: 'folder.png',
+      Contato: 'mail.png'
+    };
+
+    console.log(mapa)
+
+    return mapa[link] || 'dot.svg';
+  }
+
 }

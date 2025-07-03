@@ -43,7 +43,6 @@
   }
 }
 
-/* ✅ Botão hamburguer para mobile */
 .navbar__toggle {
   display: none;
   background: none;
@@ -61,7 +60,6 @@
   }
 }
 
-/* Menu padrão */
 .navbar__menu {
   display: flex;
   flex-wrap: wrap;
@@ -141,7 +139,6 @@
   z-index: 1101;
 }
 
-/* ✅ Esconde a logo no mobile quando o menu estiver aberto */
 .navbar.menu-aberto .navbar__right.mobile-only {
   display: none !important;
 }
@@ -150,9 +147,9 @@
   flex-grow: 1;
 }
 
-
-
-/* ✅ Estilos mobile para Angular com classe .open */
+/* ============================
+      ✅ MOBILE STYLES
+============================ */
 @media (max-width: 768px) {
   .mobile-only {
     display: block;
@@ -173,31 +170,24 @@
     z-index: 1100;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
     justify-content: flex-start;
-    /* ❌ padding-top: 4rem;  --> REMOVIDO */
     padding-bottom: 5rem;
-    gap: 2rem;
     box-shadow: 2px 0 8px rgba(0, 0, 0, 0.1);
     transform: translateX(-100%);
     transition: transform 0.3s ease;
     pointer-events: none;
     min-height: 100vh;
 
-    /* ✅ Substitui o padding-top */
+    &.open {
+      transform: translateX(0);
+      pointer-events: auto;
+    }
+
     .navbar__header-spacer {
       height: 4rem;
       width: 100%;
       flex-shrink: 0;
-    }
-
-    .navbar__spacer {
-      flex-grow: 1;
-    }
-
-    &.open {
-      transform: translateX(0);
-      pointer-events: auto;
     }
 
     .section-container {
@@ -238,80 +228,136 @@
         font-size: 0.65rem;
       }
     }
-  }
 
+    /* ✅ NOVO BLOCO: HEADER DO USUÁRIO */
+    .navbar__user-header {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      width: 100%;
+      padding: 1.5rem 1.5rem 0 1.5rem;
+      border-bottom: 1px solid #f1f1f1;
 
-  .navbar__menu {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    align-items: center;
-  }
+      .navbar__avatar {
+        width: 48px;
+        height: 48px;
+        border-radius: 50%;
+        object-fit: cover;
+      }
 
-  /* ✅ Ícones sociais no menu mobile */
-  .navbar__panel .navbar__icons {
-    display: flex !important;
-    flex-direction: row;
-    gap: 1rem;
-    align-items: center;
-    justify-content: center;
-    margin-top: 2rem;
-    padding: 1.5rem 0;
-    z-index: 999;
-    border-top: 1px solid #f1f1f1;
-    width: 100%;
-  }
+      .navbar__user-info {
+        display: flex;
+        flex-direction: column;
+        font-size: 0.9rem;
 
-  .navbar__panel .navbar__icons a {
-    width: 36px;
-    height: 36px;
-    background-color: var(--color4);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: background-color 0.2s ease;
-  }
+        strong {
+          font-weight: 600;
+          color: #111;
+        }
 
-  .navbar__panel .navbar__icons a:hover {
-    background-color: var(--color3);
-  }
+        span {
+          font-size: 0.8rem;
+          color: #888;
+        }
+      }
+    }
 
-  .navbar__panel .navbar__icons img {
-    width: 18px;
-    height: 18px;
-    filter: none;
-  }
+    /* ✅ MENU COM ÍCONES + TEXTO */
+    .navbar__menu {
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem; // 🔼 ligeiramente mais espaçado
+      align-items: flex-start;
+      padding: 1.5rem;
+      width: 100%;
 
-  .navbar__close {
-    position: absolute;
-    top: 1.2rem;
-    left: 1.2rem;
-    /* era right */
-    right: auto;
-    background: none;
-    border: 2px solid var(--color2); // 🎨 Use a cor da sua paleta
-    color: var(--color2);
-    font-size: 1.4rem;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    cursor: pointer;
-    z-index: 1101;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: all 0.2s ease;
+      a {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        text-align: left;
+        width: 100%;
+        color: #2e2e2e;
+        font-weight: 500;
+        font-size: 1.15rem; // ✅ aumentamos a fonte do menu
+        padding: 0.5rem 0;
+        text-decoration: none;
 
-    &:hover {
-      background-color: var(--color2);
-      color: white;
+        &:hover {
+          color: var(--color1);
+        }
+
+        img.menu-icon {
+          width: 22px; // ✅ maiorzinho
+          height: 22px;
+          filter: grayscale(100%) brightness(0.4);
+        }
+      }
+    }
+
+    /* ✅ Ícones Sociais */
+    .navbar__icons {
+      display: flex !important;
+      flex-direction: row;
+      gap: 1rem;
+      align-items: center;
+      justify-content: center;
+      margin-top: 2rem;
+      padding: 1.5rem 0;
+      z-index: 999;
+      border-top: 1px solid #f1f1f1;
+      width: 100%;
+
+      a {
+        width: 36px;
+        height: 36px;
+        background-color: var(--color4);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: background-color 0.2s ease;
+
+        &:hover {
+          background-color: var(--color3);
+        }
+
+        img {
+          width: 18px;
+          height: 18px;
+          filter: none;
+        }
+      }
+    }
+
+    .navbar__close {
+      position: absolute;
+      top: 1.2rem;
+      right: 1.2rem; // ✅ movido pra direita
+      left: auto;
+      background: none;
+      border: 2px solid var(--color2);
+      color: var(--color2);
+      font-size: 1.4rem;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      cursor: pointer;
+      z-index: 1101;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.2s ease;
+
+      &:hover {
+        background-color: var(--color2);
+        color: white;
+      }
     }
   }
 
-
   .menu-overlay {
-    display: none; // 👈 Agora desnecessário, pois usamos o painel
+    display: none;
   }
 
   .navbar__right {
@@ -323,12 +369,11 @@
   }
 
   .navbar__toggle {
-    display: block !important; // ✅ agora vai aparecer
+    display: block !important;
     background: none;
     border: none;
     font-size: 1.8rem;
     cursor: pointer;
     color: #333;
   }
-
 }
