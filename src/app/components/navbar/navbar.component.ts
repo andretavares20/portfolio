@@ -30,10 +30,10 @@ export class NavbarComponent {
 
   getIconForLink(link: string): string {
     const mapa: Record<string, string> = {
-      Sobre: 'user.png',
-      Stack: 'layers.png',
-      Projetos: 'folder.png',
-      Contato: 'mail.png'
+      Sobre: 'user.svg',
+      Stack: 'blocks.svg',
+      Projetos: 'folder-kanban.svg',
+      Contato: 'mail.svg'
     };
 
     console.log(mapa)

@@ -63,7 +63,7 @@
 .navbar__menu {
   display: flex;
   flex-wrap: wrap;
-  gap: 1.2rem;
+  gap: 1.5rem;
   justify-content: center;
   flex: 1;
   text-align: center;
@@ -74,9 +74,15 @@
     font-weight: 500;
     font-size: 1rem;
     transition: color 0.2s ease;
+    padding: 0.6rem 0;
 
     &:hover {
       color: var(--color1);
+
+      img.menu-icon {
+        filter: brightness(0) saturate(100%) sepia(100%) hue-rotate(340deg);
+        /* Ex: rosa */
+      }
     }
   }
 }
@@ -163,8 +169,8 @@
     position: fixed;
     top: 0;
     left: 0;
-    width: 80vw;
-    max-width: 320px;
+    width: 100vw; /* ocupa toda a tela */
+    max-width: none;
     height: 100vh;
     background-color: #fff;
     z-index: 1100;
@@ -175,13 +181,15 @@
     padding-bottom: 5rem;
     box-shadow: 2px 0 8px rgba(0, 0, 0, 0.1);
     transform: translateX(-100%);
-    transition: transform 0.3s ease;
+    transition: transform 0.3s ease-in-out, opacity 0.3s ease;
     pointer-events: none;
     min-height: 100vh;
+    opacity: 0;
 
     &.open {
       transform: translateX(0);
       pointer-events: auto;
+      opacity: 1;
     }
 
     .navbar__header-spacer {
@@ -235,8 +243,8 @@
       align-items: center;
       gap: 1rem;
       width: 100%;
-      padding: 1.5rem 1.5rem 0 1.5rem;
-      border-bottom: 1px solid #f1f1f1;
+      padding: 2rem 1.5rem 1rem 1.5rem;
+      border-bottom: 1px solid var(--color4);
 
       .navbar__avatar {
         width: 48px;
@@ -288,9 +296,10 @@
         }
 
         img.menu-icon {
-          width: 22px; // ✅ maiorzinho
-          height: 22px;
-          filter: grayscale(100%) brightness(0.4);
+          width: 24px;
+          height: 24px;
+          filter: none;
+          /* Remover desbotado */
         }
       }
     }
@@ -336,11 +345,11 @@
       right: 1.2rem; // ✅ movido pra direita
       left: auto;
       background: none;
-      border: 2px solid var(--color2);
+      border: 1px solid var(--color2);
       color: var(--color2);
-      font-size: 1.4rem;
-      width: 40px;
-      height: 40px;
+      font-size: 1.2rem;
+      width: 36px;
+      height: 36px;
       border-radius: 50%;
       cursor: pointer;
       z-index: 1101;
