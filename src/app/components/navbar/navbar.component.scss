@@ -313,6 +313,7 @@
       justify-content: center;
       margin-top: 2rem;
       padding: 1.5rem 0;
+      padding-bottom: calc(1.5rem + env(safe-area-inset-bottom, 24px)); /* 🔥 ESSENCIAL */
       z-index: 999;
       border-top: 1px solid #f1f1f1;
       width: 100%;
