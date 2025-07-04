@@ -169,7 +169,8 @@
     position: fixed;
     top: 0;
     left: 0;
-    width: 100vw; /* ocupa toda a tela */
+    width: 100vw;
+    /* ocupa toda a tela */
     max-width: none;
     height: 100vh;
     background-color: #fff;
@@ -313,7 +314,7 @@
       justify-content: center;
       margin-top: 2rem;
       padding: 1.5rem 0;
-      padding-bottom: calc(1.5rem + env(safe-area-inset-bottom, 24px)); /* 🔥 ESSENCIAL */
+      padding: 1.5rem 0 calc(env(safe-area-inset-bottom, 0px) + 1rem) 0;
       z-index: 999;
       border-top: 1px solid #f1f1f1;
       width: 100%;
