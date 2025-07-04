@@ -6,24 +6,18 @@
   --color5: #d1d0d7;
 }
 
-body::after {
-  content: '';
-  display: block;
-  height: env(safe-area-inset-bottom);
-  background: rgba(255, 0, 0, 0.1);
-}
-
 html, body {
   height: 100%;
-  overflow: hidden;
   margin: 0;
   padding: 0;
   display: flex;
   flex-direction: column;
+  overflow-y: auto; // padrão normal
 }
 
-app-root {
-  height: 100%;
+body.menu-aberto {
+  overflow: hidden !important; // só trava o scroll quando menu está aberto
 }
+
 
 

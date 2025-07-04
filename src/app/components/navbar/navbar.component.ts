@@ -20,7 +20,12 @@ export class NavbarComponent {
 
   toggleMenu() {
     this.menuAberto = !this.menuAberto;
-    document.body.classList.toggle('menu-aberto', this.menuAberto);
+
+    if (this.menuAberto) {
+      document.body.classList.add('menu-aberto');
+    } else {
+      document.body.classList.remove('menu-aberto');
+    }
   }
 
   fecharMenu() {
