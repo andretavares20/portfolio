@@ -172,7 +172,8 @@
     width: 100vw;
     /* ocupa toda a tela */
     max-width: none;
-    height: 100vh;
+    height: 100dvh;
+    min-height: 100dvh;
     background-color: #fff;
     z-index: 1100;
     display: flex;
@@ -184,7 +185,6 @@
     transform: translateX(-100%);
     transition: transform 0.3s ease-in-out, opacity 0.3s ease;
     pointer-events: none;
-    min-height: 100vh;
     opacity: 0;
 
     &.open {
@@ -279,6 +279,7 @@
       align-items: flex-start;
       padding: 1.5rem;
       width: 100%;
+      flex-grow: 1;
 
       a {
         display: flex;
@@ -312,12 +313,12 @@
       gap: 1rem;
       align-items: center;
       justify-content: center;
-      margin-top: 2rem;
-      padding: 1.5rem 0 calc(env(safe-area-inset-bottom) + 1rem); // 👈 aqui está a mágica
+      margin-top: auto; // 🔥 cola na parte inferior
+      padding: 1rem 0 calc(env(safe-area-inset-bottom, 20px) + 1rem); // fallback de 20px se não suportar
       z-index: 999;
       border-top: 1px solid #f1f1f1;
       width: 100%;
-      background-color: #fff ; // garante contraste
+      background-color: #fff; // garante contraste
 
       a {
         width: 36px;
