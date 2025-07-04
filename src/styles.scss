@@ -6,3 +6,9 @@
   --color5: #d1d0d7;
 }
 
+body::after {
+  content: '';
+  display: block;
+  height: env(safe-area-inset-bottom);
+  background: rgba(255, 0, 0, 0.1);
+}
