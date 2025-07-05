@@ -13,14 +13,6 @@ Este é o repositório do meu portfólio pessoal, desenvolvido com **Angular** e
 - **Responsividade Mobile-First**
 - **Deploy automático via Vercel**
 
-## 📁 Estrutura de Pastas
-
-├── src/ # Código-fonte do projeto
-├── public/ # Arquivos estáticos
-├── .vscode/ # Configurações de editor
-├── angular.json # Configuração Angular
-├── tsconfig*.json # Configurações TypeScript
-
 ## 🚀 Funcionalidades
 
 - Apresentação profissional com design moderno
